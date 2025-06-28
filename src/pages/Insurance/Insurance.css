@@ -1,0 +1,460 @@
+.insurance {
+  padding: 40px 0;
+  min-height: 100vh;
+}
+
+.insurance-plans {
+  margin-bottom: 48px;
+}
+
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.plan-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.plan-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.plan-card.selected {
+  border-color: var(--primary-green);
+  background: var(--light-green);
+}
+
+.plan-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.plan-name {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+.plan-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+}
+
+.currency {
+  font-size: 18px;
+  color: var(--text-light);
+}
+
+.amount {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--primary-green);
+}
+
+.period {
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.plan-coverage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  background: var(--light-orange);
+  border-radius: var(--border-radius);
+  margin-bottom: 24px;
+  color: var(--primary-orange);
+  font-weight: 500;
+}
+
+.plan-features {
+  list-style: none;
+  margin-bottom: 32px;
+}
+
+.plan-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  color: var(--text-dark);
+}
+
+.plan-features svg {
+  color: var(--primary-green);
+}
+
+.plan-btn {
+  width: 100%;
+}
+
+.claims-section {
+  margin-bottom: 48px;
+}
+
+.claims-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.claim-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.claim-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.claim-id {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.claim-type {
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+.claim-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.claim-description {
+  color: var(--text-light);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+
+.claim-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid var(--gray-200);
+}
+
+.claim-amount {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--primary-green);
+}
+
+.claim-date {
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.claims-actions {
+  text-align: center;
+}
+
+.how-it-works {
+  margin-bottom: 48px;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+}
+
+.step-card {
+  text-align: center;
+  padding: 32px 24px;
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  background: var(--primary-green);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 auto 20px;
+}
+
+.step-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+.step-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .plans-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .claim-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .claim-details {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }<boltAction type="file" filePath="src/pages/Wallet/Wallet.jsx">
+import React, { useState } from 'react'
+import { Wallet as WalletIcon, Send, ArrowDownLeft, ArrowUpRight, Copy, QrCode, CreditCard } from 'lucide-react'
+import './Wallet.css'
+
+const Wallet = ({ language }) => {
+  const [balance, setBalance] = useState(15750.50)
+  const [walletAddress] = useState('0x742d35Cc6634C0532925a3b8D4C9db4C4C4b3f8e')
+  const [transactions] = useState([
+    {
+      id: 'TXN001',
+      type: 'received',
+      amount: 5000,
+      from: language === 'en' ? 'Insurance Claim' : 'बीमा दावा',
+      date: '2024-01-20',
+      status: 'completed'
+    },
+    {
+      id: 'TXN002',
+      type: 'sent',
+      amount: 1200,
+      to: language === 'en' ? 'Fertilizer Purchase' : 'उर्वरक खरीद',
+      date: '2024-01-18',
+      status: 'completed'
+    },
+    {
+      id: 'TXN003',
+      type: 'received',
+      amount: 8500,
+      from: language === 'en' ? 'Crop Sale' : 'फसल बिक्री',
+      date: '2024-01-15',
+      status: 'completed'
+    }
+  ])
+
+  const [sendAmount, setSendAmount] = useState('')
+  const [recipientAddress, setRecipientAddress] = useState('')
+
+  const copyAddress = () => {
+    navigator.clipboard.writeText(walletAddress)
+    alert(language === 'en' ? 'Address copied!' : 'पता कॉपी किया गया!')
+  }
+
+  const handleSend = (e) => {
+    e.preventDefault()
+    if (sendAmount && recipientAddress) {
+      alert(language === 'en' ? 'Transaction initiated!' : 'लेनदेन शुरू किया गया!')
+      setSendAmount('')
+      setRecipientAddress('')
+    }
+  }
+
+  return (
+    <div className="wallet">
+      <div className="container">
+        <header className="page-header">
+          <h1 className="page-title">
+            {language === 'en' ? 'Digital Wallet' : 'डिजिटल वॉलेट'}
+          </h1>
+          <p className="page-description">
+            {language === 'en'
+              ? 'Secure Web3 wallet for digital payments and transactions.'
+              : 'डिजिटल भुगतान और लेनदेन के लिए सुरक्षित Web3 वॉलेट।'}
+          </p>
+        </header>
+
+        <section className="wallet-overview">
+          <div className="balance-card">
+            <div className="balance-header">
+              <WalletIcon size={32} />
+              <h2>{language === 'en' ? 'Total Balance' : 'कुल शेष राशि'}</h2>
+            </div>
+            <div className="balance-amount">
+              <span className="currency">₹</span>
+              <span className="amount">{balance.toLocaleString('en-IN', { minimumFractionDigits: 2 })}</span>
+            </div>
+            <div className="wallet-address">
+              <span className="address-label">
+                {language === 'en' ? 'Wallet Address:' : 'वॉलेट पता:'}
+              </span>
+              <div className="address-container">
+                <span className="address">{walletAddress.slice(0, 10)}...{walletAddress.slice(-8)}</span>
+                <button className="copy-btn" onClick={copyAddress}>
+                  <Copy size={16} />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div className="quick-actions">
+            <button className="action-btn send-btn">
+              <Send size={24} />
+              <span>{language === 'en' ? 'Send' : 'भेजें'}</span>
+            </button>
+            <button className="action-btn receive-btn">
+              <ArrowDownLeft size={24} />
+              <span>{language === 'en' ? 'Receive' : 'प्राप्त करें'}</span>
+            </button>
+            <button className="action-btn qr-btn">
+              <QrCode size={24} />
+              <span>{language === 'en' ? 'QR Code' : 'QR कोड'}</span>
+            </button>
+          </div>
+        </section>
+
+        <section className="send-money">
+          <h2 className="section-title">
+            {language === 'en' ? 'Send Money' : 'पैसे भेजें'}
+          </h2>
+          <form className="send-form" onSubmit={handleSend}>
+            <div className="form-group">
+              <label className="form-label">
+                {language === 'en' ? 'Recipient Address' : 'प्राप्तकर्ता का पता'}
+              </label>
+              <input
+                type="text"
+                className="form-input"
+                placeholder={language === 'en' ? 'Enter wallet address' : 'वॉलेट पता दर्ज करें'}
+                value={recipientAddress}
+                onChange={(e) => setRecipientAddress(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label className="form-label">
+                {language === 'en' ? 'Amount (₹)' : 'राशि (₹)'}
+              </label>
+              <input
+                type="number"
+                className="form-input"
+                placeholder={language === 'en' ? 'Enter amount' : 'राशि दर्ज करें'}
+                value={sendAmount}
+                onChange={(e) => setSendAmount(e.target.value)}
+              />
+            </div>
+            <button type="submit" className="btn btn-primary">
+              <Send size={20} />
+              {language === 'en' ? 'Send Payment' : 'भुगतान भेजें'}
+            </button>
+          </form>
+        </section>
+
+        <section className="transactions">
+          <h2 className="section-title">
+            {language === 'en' ? 'Recent Transactions' : 'हाल की लेनदेन'}
+          </h2>
+          <div className="transactions-list">
+            {transactions.map((transaction) => (
+              <article key={transaction.id} className="transaction-card">
+                <div className="transaction-icon">
+                  {transaction.type === 'received' ? (
+                    <ArrowDownLeft size={24} className="received-icon" />
+                  ) : (
+                    <ArrowUpRight size={24} className="sent-icon" />
+                  )}
+                </div>
+                <div className="transaction-details">
+                  <h3 className="transaction-title">
+                    {transaction.type === 'received' 
+                      ? (language === 'en' ? 'Received from' : 'से प्राप्त')
+                      : (language === 'en' ? 'Sent to' : 'को भेजा')
+                    }
+                  </h3>
+                  <p className="transaction-description">
+                    {transaction.from || transaction.to}
+                  </p>
+                  <span className="transaction-date">{transaction.date}</span>
+                </div>
+                <div className="transaction-amount">
+                  <span className={`amount ${transaction.type}`}>
+                    {transaction.type === 'received' ? '+' : '-'}₹{transaction.amount.toLocaleString()}
+                  </span>
+                  <span className="status completed">
+                    {language === 'en' ? 'Completed' : 'पूर्ण'}
+                  </span>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="wallet-features">
+          <h2 className="section-title">
+            {language === 'en' ? 'Wallet Features' : 'वॉलेट सुविधाएं'}
+          </h2>
+          <div className="features-grid">
+            <article className="feature-card">
+              <div className="feature-icon">
+                <CreditCard size={32} />
+              </div>
+              <h3>{language === 'en' ? 'Secure Payments' : 'सुरक्षित भुगतान'}</h3>
+              <p>
+                {language === 'en'
+                  ? 'All transactions are secured with blockchain technology and encryption.'
+                  : 'सभी लेनदेन ब्लॉकचेन तकनीक और एन्क्रिप्शन के साथ सुरक्षित हैं।'}
+              </p>
+            </article>
+            <article className="feature-card">
+              <div className="feature-icon">
+                <ArrowDownLeft size={32} />
+              </div>
+              <h3>{language === 'en' ? 'Instant Transfers' : 'तत्काल स्थानांतरण'}</h3>
+              <p>
+                {language === 'en'
+                  ? 'Send and receive money instantly with low transaction fees.'
+                  : 'कम लेनदेन शुल्क के साथ तुरंत पैसे भेजें और प्राप्त करें।'}
+              </p>
+            </article>
+            <article className="feature-card">
+              <div className="feature-icon">
+                <QrCode size={32} />
+              </div>
+              <h3>{language === 'en' ? 'QR Payments' : 'QR भुगतान'}</h3>
+              <p>
+                {language === 'en'
+                  ? 'Easy payments using QR codes for quick transactions.'
+                  : 'त्वरित लेनदेन के लिए QR कोड का उपयोग करके आसान भुगतान।'}
+              </p>
+            </article>
+          </div>
+        </section>
+      </div>
+    </div>
+  )
+}
+
+export default Wallet

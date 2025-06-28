@@ -1,0 +1,279 @@
+.crop-scanner {
+  padding: 40px 0;
+  min-height: 100vh;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.page-title {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+.page-description {
+  font-size: 18px;
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.scanner-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.upload-section {
+  margin-bottom: 32px;
+}
+
+.upload-area {
+  background: var(--white);
+  border: 2px dashed var(--gray-300);
+  border-radius: var(--border-radius);
+  padding: 48px 24px;
+  text-align: center;
+  transition: var(--transition);
+}
+
+.upload-area:hover {
+  border-color: var(--primary-green);
+  background: var(--light-green);
+}
+
+.upload-placeholder h3 {
+  font-size: 24px;
+  color: var(--text-dark);
+  margin: 16px 0;
+}
+
+.upload-placeholder p {
+  color: var(--text-light);
+  margin-bottom: 24px;
+}
+
+.image-preview {
+  position: relative;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.change-image-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--white);
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  transition: var(--transition);
+}
+
+.change-image-btn:hover {
+  background: var(--light-green);
+}
+
+.scan-actions {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.scan-btn {
+  min-width: 200px;
+}
+
+.scan-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.scanning-section {
+  text-align: center;
+  padding: 48px 24px;
+  background: var(--white);
+  border-radius: var(--border-radius);
+  margin-bottom: 32px;
+}
+
+.scanning-animation {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 24px;
+  position: relative;
+  border: 2px solid var(--gray-300);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.scanner-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary-green);
+  animation: scan 2s linear infinite;
+}
+
+@keyframes scan {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(196px); }
+}
+
+.scanning-text {
+  font-size: 18px;
+  color: var(--text-light);
+}
+
+.results-section {
+  margin-bottom: 48px;
+}
+
+.result-card {
+  background: var(--white);
+  border-radius: var(--border-radius);
+  padding: 32px;
+  box-shadow: var(--shadow);
+}
+
+.result-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.severity-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--light-green);
+}
+
+.disease-name {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.confidence-score {
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+.result-details {
+  margin-bottom: 24px;
+}
+
+.detail-section {
+  margin-bottom: 20px;
+}
+
+.detail-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.detail-content {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.result-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.tips-section {
+  margin-top: 48px;
+}
+
+.section-title {
+  font-size: 28px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text-dark);
+  margin-bottom: 32px;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px;
+}
+
+.tip-card {
+  background: var(--white);
+  padding: 24px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+.tip-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary-green);
+  margin-bottom: 12px;
+}
+
+.tip-card p {
+  color: var(--text-light);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .crop-scanner {
+    padding: 20px 0;
+  }
+
+  .page-title {
+    font-size: 28px;
+  }
+
+  .page-description {
+    font-size: 16px;
+  }
+
+  .upload-area {
+    padding: 32px 16px;
+  }
+
+  .result-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .result-actions {
+    flex-direction: column;
+  }
+
+  .tips-grid {
+    grid-template-columns: 1fr;
+  }
+}
